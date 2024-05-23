@@ -1,0 +1,27 @@
+from flask import Flask, request, render_template_string
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template_string("""
+        <!-- HTML content as shown above -->
+    """)
+
+    @app.route('/convert', methods=['POST'])
+    def convert():
+        from_game = request.form['fromGame']
+        to_game = request.form['toGame']
+        from_sensitivity = float(request.form['fromSensitivity'])
+        from_dpi = int(request.form['fromDPI'])
+        to_dpi = int(request.form['toDPI'])
+    
+        # Conversion logic
+        converted_sens = from_sensitivity / from_dpi * to_dpi
+        cm_per_360 = from_sensitivity / from_dpi
+        inch_per_360 = cm_per_360 / 2.54
+    
+        # Render the results template with the calculated results
+        return render_template('results.html', converted_sens=converted_sens, cm_per_360=cm_per_360, inch_per_360=inch_per_360)
+    
+    

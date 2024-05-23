@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FPS Sensitivity Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+   .container {
+        width: 400px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+   .form-group {
+        margin-bottom: 15px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FPS Sensitivity Converter</h1>
+    <form id="conversionForm">
+        <div class="form-group">
+            <label for="fromGame">Convert from:</label>
+            <select id="fromGame" name="fromGame">
+                <!-- Game options will be populated here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="toGame">Convert to:</label>
+            <select id="toGame" name="toGame">
+                <!-- Game options will be populated here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fromSensitivity">From Game Sensitivity:</label>
+            <input type="number" id="fromSensitivity" name="fromSensitivity" min="0" max="100" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="fromDPI">From Mouse DPI:</label>
+            <input type="number" id="fromDPI" name="fromDPI" min="0" max="32000" step="10">
+        </div>
+        <div class="form-group">
+            <label for="toDPI">To Mouse DPI:</label>
+            <input type="number" id="toDPI" name="toDPI" min="0" max="32000" step="10">
+        </div>
+        <button type="submit">Convert</button>
+    </form>
+    <div class="result">
+        <p>Converted Sensitivity: <span id="convertedSens">0</span></p>
+        <p>cm/360: <span id="cmPer360">0</span></p>
+        <p>in/360: <span id="inchPer360">0</span></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

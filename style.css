@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.result p {
+    margin-top: 10px;
+}
